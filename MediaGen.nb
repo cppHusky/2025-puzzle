@@ -1,0 +1,309 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11158,        301]
+NotebookOptionsPosition[     10681,        286]
+NotebookOutlinePosition[     11109,        302]
+CellTagsIndexPosition[     11066,        299]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"puzzle", " ", "1"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"str", "=", 
+     RowBox[{"(", GridBox[{
+        {"\"\<P\>\"", "\"\<R\>\"", "\"\<E\>\"", "\"\<I\>\"", "\"\<I\>\""},
+        {"\"\<G\>\"", "\"\<O\>\"", "\"\<G\>\"", "\"\<I\>\"", "\"\<Y\>\""},
+        {"\"\<P\>\"", "\"\<E\>\"", "\"\<O\>\"", "\"\<R\>\"", "\"\<X\>\""}
+       }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rad", "=", 
+     RowBox[{
+      FractionBox["\[Pi]", "4"], 
+      RowBox[{"(", GridBox[{
+         {"5", "6", "4", "6", "7"},
+         {"7", "3", "4", "0", "4"},
+         {"6", "1", "6", "7", "1"}
+        }], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rotatedTextTable", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Rotate", "[", 
+        RowBox[{
+         RowBox[{"Text", "[", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"str", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", "j"}], "]"}], "]"}], ",", "48"}], "]"}], 
+          "]"}], ",", 
+         RowBox[{"rad", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "str", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{"str", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"graphicsMatrix", "=", 
+     RowBox[{"GraphicsGrid", "[", 
+      RowBox[{"rotatedTextTable", ",", 
+       RowBox[{"Frame", "->", "None"}], ",", 
+       RowBox[{"Spacings", "->", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1"}], "}"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<Attachment/Puzzle1.png\>\""}], ",", "graphicsMatrix"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", 
+     RowBox[{
+     "str", ",", "rad", ",", "rotatedTextTable", ",", "graphicsMatrix"}], 
+     "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.917389466791277*^9, 3.91738950195586*^9}, {
+   3.9173898466098976`*^9, 3.917389862511032*^9}, {3.91740340439596*^9, 
+   3.9174034158769417`*^9}, {3.917403455030704*^9, 3.9174034857065353`*^9}, {
+   3.917404894953809*^9, 3.9174049801467*^9}, 3.917405962263994*^9, {
+   3.917412563647932*^9, 
+   3.917412567094324*^9}},ExpressionUUID->"ef1ae62e-3d02-f946-add3-\
+97fe5f09ac52"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"puzzle", " ", "1", " ", "solution"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"graph", "=", 
+     RowBox[{"Graph", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "->", "7"}], ",", 
+         RowBox[{"2", "->", "3"}], ",", 
+         RowBox[{"3", "->", "8"}], ",", 
+         RowBox[{"4", "->", "3"}], ",", 
+         RowBox[{"4", "->", "5"}], ",", 
+         RowBox[{"5", "->", "9"}], ",", 
+         RowBox[{"6", "->", "2"}], ",", 
+         RowBox[{"7", "->", "3"}], ",", 
+         RowBox[{"7", "->", "11"}], ",", 
+         RowBox[{"8", "->", "13"}], ",", 
+         RowBox[{"9", "->", "4"}], ",", 
+         RowBox[{"9", "->", "14"}], ",", 
+         RowBox[{"10", "->", "15"}], ",", 
+         RowBox[{"11", "->", "12"}], ",", 
+         RowBox[{"12", "->", "6"}], ",", 
+         RowBox[{"13", "->", "12"}], ",", 
+         RowBox[{"13", "->", "14"}], ",", 
+         RowBox[{"14", "->", "10"}], ",", 
+         RowBox[{"15", "->", "9"}]}], "}"}], ",", 
+       RowBox[{"VertexLabels", "->", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"1", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<P\>\"", ",", 
+               RowBox[{"5", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"7", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<O\>\"", ",", 
+               RowBox[{"3", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"11", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<P\>\"", ",", 
+               RowBox[{"6", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"12", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<E\>\"", ",", 
+               RowBox[{"1", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"6", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<G\>\"", ",", 
+               RowBox[{"7", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"2", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<R\>\"", ",", 
+               RowBox[{"6", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"3", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<E\>\"", ",", 
+               RowBox[{"4", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"8", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<G\>\"", ",", 
+               RowBox[{"4", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"13", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<O\>\"", ",", 
+               RowBox[{"6", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"14", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<R\>\"", ",", 
+               RowBox[{"7", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"10", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<Y\>\"", ",", 
+               RowBox[{"4", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"15", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<X\>\"", ",", 
+               RowBox[{"1", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"9", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<I\>\"", ",", 
+               RowBox[{"0", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"4", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<I\>\"", ",", 
+               RowBox[{"6", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"5", "->", 
+           RowBox[{"Placed", "[", 
+            RowBox[{
+             RowBox[{"Rotate", "[", 
+              RowBox[{"\"\<I\>\"", ",", 
+               RowBox[{"7", 
+                RowBox[{"\[Pi]", "/", "4"}]}]}], "]"}], ",", "Center"}], 
+            "]"}]}]}], "\[IndentingNewLine]", "}"}]}], ",", 
+       RowBox[{"VertexSize", "->", ".5"}], ",", 
+       RowBox[{"EdgeStyle", "->", 
+        RowBox[{"(", 
+         RowBox[{"Thread", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"1", "->", "7"}], ",", 
+             RowBox[{"7", "->", "11"}], ",", 
+             RowBox[{"11", "->", "12"}], ",", 
+             RowBox[{"12", "->", "6"}], ",", 
+             RowBox[{"6", "->", "2"}], ",", 
+             RowBox[{"2", "->", "3"}], ",", 
+             RowBox[{"3", "->", "8"}], ",", 
+             RowBox[{"8", "->", "13"}], ",", 
+             RowBox[{"13", "->", "14"}], ",", 
+             RowBox[{"14", "->", "10"}], ",", 
+             RowBox[{"10", "->", "15"}], ",", 
+             RowBox[{"15", "->", "9"}], ",", 
+             RowBox[{"9", "->", "4"}], ",", 
+             RowBox[{"4", "->", "5"}]}], "}"}], "->", "Red"}], "]"}], ")"}]}],
+        ",", 
+       RowBox[{"ImageSize", "->", "480"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<Attachment/Puzzle1_solution.png\>\""}], ",", "graph"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "graph", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9174125112265377`*^9, 3.917412606794155*^9}, {
+  3.9174132404942684`*^9, 3.9174132477564335`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"]
+},
+WindowSize->{546.8571428571428, 607.7142857142857},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"355e33e0-c959-ee4c-8628-29a55c32f122"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2688, 73, 294, "Input",ExpressionUUID->"ef1ae62e-3d02-f946-add3-97fe5f09ac52"],
+Cell[3249, 95, 7428, 189, 596, "Input",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"]
+}
+]
+*)
+
