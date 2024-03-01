@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11158,        301]
-NotebookOptionsPosition[     10681,        286]
-NotebookOutlinePosition[     11109,        302]
-CellTagsIndexPosition[     11066,        299]
+NotebookDataLength[     14396,        383]
+NotebookOptionsPosition[     13822,        367]
+NotebookOutlinePosition[     14250,        383]
+CellTagsIndexPosition[     14207,        380]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -89,9 +89,9 @@ Cell[BoxData[
    3.9173898466098976`*^9, 3.917389862511032*^9}, {3.91740340439596*^9, 
    3.9174034158769417`*^9}, {3.917403455030704*^9, 3.9174034857065353`*^9}, {
    3.917404894953809*^9, 3.9174049801467*^9}, 3.917405962263994*^9, {
-   3.917412563647932*^9, 
-   3.917412567094324*^9}},ExpressionUUID->"ef1ae62e-3d02-f946-add3-\
-97fe5f09ac52"],
+   3.917412563647932*^9, 3.917412567094324*^9}, {3.918257651702244*^9, 
+   3.9182576741129494`*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"ef1ae62e-3d02-f946-add3-97fe5f09ac52"],
 
 Cell[BoxData[
  RowBox[{
@@ -280,9 +280,90 @@ Cell[BoxData[
     ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "graph", "]"}], ";"}]}]}]], "Input",
- CellChangeTimes->{{3.9174125112265377`*^9, 3.917412606794155*^9}, {
-  3.9174132404942684`*^9, 3.9174132477564335`*^9}},
- CellLabel->"In[35]:=",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"]
+ CellChangeTimes->{{3.917412511226538*^9, 3.917412606794155*^9}, {
+  3.9174132404942684`*^9, 3.917413247756436*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"puzzle", " ", "4"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"paths", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<01_BARTO_LOME.JPG\>\"", ",", "\"\<02_IACO_BVSAL.jpg\>\"", ",", 
+       "\"\<03_ANDR_EAS.jpg\>\"", ",", "\"\<04_Judas.jpg\>\"", ",", 
+       "\"\<05_PET_RVS.jpg\>\"", ",", "\"\<06_IOHAN_NIS.jpg\>\"", ",", 
+       "\"\<07_THO_MAS.jpg\>\"", ",", "\"\<08_IACO_BVS.jpg\>\"", ",", 
+       "\"\<09_PHILI_PPVS.jpg\>\"", ",", "\"\<10_MAT_THEVS.jpg\>\"", ",", 
+       "\"\<11_THAD_DEVS.jpg\>\"", ",", "\"\<12_SIMO_CHAN.jpg\>\""}], 
+      "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"inputDir", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+         "\"\<Attachment\\\\Apostles_original\\\\\>\"", "<>", "#"}], ")"}], 
+       "&"}], "/@", "paths"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outputDir", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+         "\"\<Attachment\\\\Apostles\\\\\>\"", "<>", "#"}], ")"}], "&"}], "/@",
+       "paths"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"images", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Import", "[", 
+        RowBox[{"inputDir", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "inputDir", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"width", "=", "150"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"height", "=", "200"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"i", "=", "1"}], ",", 
+      RowBox[{"i", "<=", 
+       RowBox[{"Length", "[", "outputDir", "]"}]}], ",", 
+      RowBox[{"i", "++"}], ",", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"outputDir", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", 
+        RowBox[{"ImageResize", "[", 
+         RowBox[{
+          RowBox[{"images", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"width", ",", "height"}], "}"}]}], "]"}]}], "]"}]}], "]"}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", 
+    RowBox[{
+    "paths", ",", "inputDir", ",", "outputDir", ",", "images", ",", "width", 
+     ",", "height"}], "]"}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBWIQXbMiK67a8K2j29eOFBCtvElsGoj+UuUxA0SfbpHe
+A6JLbvruBdFObqWHQPRhgbqTIPrE9duPQfSmC96vQXTWU2/pGiCtZb9LDkTr
+PL3qAKKVz5e4g/mMuREgmqVCpAhEn7DfXA2il2dcrwHRFwoMukA0v4VBP4je
+sP7bZBC9IrRwOohuUejbAqJnLG3YDaKnaK4/BaINvJ7eAJsvJ3QPRCvYJz0G
+m99SwVILpGMKLnOA6IyUR7Ygmue6iCOIPrF992oQbVJ4bz2IbuDcuRlEr3Fy
+PACiK9pTboHogvKL90G0D7+NTB2Q3nNiJ5gW0dhrAqIbKv+DaQCGkqG2
+  "],
+ CellLabel->"In[1]:=",ExpressionUUID->"60781c7f-9d3a-034d-b420-5be187b2c886"]
 },
 WindowSize->{546.8571428571428, 607.7142857142857},
 WindowMargins->{{Automatic, 0}, {Automatic, 0}},
@@ -301,8 +382,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2688, 73, 294, "Input",ExpressionUUID->"ef1ae62e-3d02-f946-add3-97fe5f09ac52"],
-Cell[3249, 95, 7428, 189, 596, "Input",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"]
+Cell[558, 20, 2758, 73, 294, "Input",ExpressionUUID->"ef1ae62e-3d02-f946-add3-97fe5f09ac52"],
+Cell[3319, 95, 7424, 189, 542, "Input",ExpressionUUID->"6ff39d8d-bf9c-584a-b5bc-40304a2e213d"],
+Cell[10746, 286, 3072, 79, 390, "Input",ExpressionUUID->"60781c7f-9d3a-034d-b420-5be187b2c886"]
 }
 ]
 *)
