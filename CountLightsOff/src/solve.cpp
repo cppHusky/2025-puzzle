@@ -43,11 +43,20 @@ int main(){
 		gaussian::make_b(b,pipe_click,pipe_count);
 		gaussian::make_matrix(dmatrix,coefficient,b);
 		gaussian::gaussian_eliminate(dmatrix);
-		for(int i=0;i<N*M;i++){
-			for(int j=0;j<N*M+1;j++)
-				std::clog<<(std::abs(dmatrix[i][j])>1e-5?dmatrix[i][j]:0)<<' ';
-			std::clog<<std::endl;
-		}
+		for(int i=0;i<N*M;i++)
+			b[i]=std::abs(dmatrix[i][N*M])>1e-5?1:0;
+		gaussian::make_matrix(bmatrix,coefficient,b);
+		gaussian::gaussian_eliminate(bmatrix);
+		for(int i=0;i<N*M;i++)
+			b[i]=std::abs(bmatrix[i][N*M]);
+		for(int k=0;k<N*M;k++)
+			if(b[k]==1){
+				unsigned i{k/M},j{k%M},now;
+				write(pipe_click[1],&i,sizeof(i));
+				write(pipe_click[1],&j,sizeof(j));
+				read(pipe_count[0],&now,sizeof(now));
+				std::clog<<"Input: "<<i<<' '<<j<<"\tOutput: "<<now<<std::endl;
+			}
 		close(pipe_click[1]);
 		close(pipe_click[0]);
 		for(int i=0;i<N*M;i++){
