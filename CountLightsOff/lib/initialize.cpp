@@ -1,6 +1,6 @@
 #include"random.hpp"
 #include"operate.hpp"
-unsigned user::initialize(bool **light,const unsigned N,const unsigned M){
+unsigned operate::initialize(bool **light,const unsigned N,const unsigned M){
 	unsigned count_on{0};
 	while(!count_on){
 		count_on=0;

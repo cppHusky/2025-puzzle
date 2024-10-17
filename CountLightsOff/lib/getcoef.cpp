@@ -1,7 +1,8 @@
-#include"operate.hpp"
-void user::getcoef(bool **coefficient,const unsigned N,const unsigned M){
-	for(int i=0;i<N;i++)
-		for(int j=0;j<M;j++){
+#include"preset.hpp"
+#include"gaussian.hpp"
+void gaussian::getcoef(bool **coefficient){
+	for(int i=0;i<N*M;i++)
+		for(int j=0;j<N*M;j++){
 			int ix{i/M},iy{i%M},jx{j/M},jy{j%M};
 			if(ix==jx){
 				int dy{iy-jy};

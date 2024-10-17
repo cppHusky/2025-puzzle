@@ -4,6 +4,7 @@
 #include<sys/wait.h>
 #include"preset.hpp"
 #include"operate.hpp"
+#include"gaussian.hpp"
 int main(){
 	int pipe_click[2];
 	int pipe_count[2];
@@ -30,16 +31,30 @@ int main(){
 	else{
 		close(pipe_click[0]);
 		close(pipe_count[1]);
-		int last,now;
-		for(int i=0;i<N;i++)
-			for(int j=0;j<M;j++){
-				write(pipe_click[1],&i,sizeof(i));
-				write(pipe_click[1],&j,sizeof(j));
-				last=now;
-				read(pipe_count[0],&now,sizeof(now));
-			}
+		bool *coefficient[N*M],*bmatrix[N*M];
+		double *dmatrix[N*M];
+		for(int i=0;i<N*M;i++){
+			coefficient[i]=new bool[N*M];
+			bmatrix[i]=new bool[N*M+1];
+			dmatrix[i]=new double[N*M+1];
+		}
+		gaussian::getcoef(coefficient);
+		unsigned b[N*M];
+		gaussian::make_b(b,pipe_click,pipe_count);
+		gaussian::make_matrix(dmatrix,coefficient,b);
+		gaussian::gaussian_eliminate(dmatrix);
+		for(int i=0;i<N*M;i++){
+			for(int j=0;j<N*M+1;j++)
+				std::clog<<(std::abs(dmatrix[i][j])>1e-5?dmatrix[i][j]:0)<<' ';
+			std::clog<<std::endl;
+		}
 		close(pipe_click[1]);
 		close(pipe_click[0]);
+		for(int i=0;i<N*M;i++){
+			delete []coefficient[i];
+			delete []bmatrix[i];
+			delete []dmatrix[i];
+		}
 		waitpid(pid,nullptr,0);
 	}
 	return 0;

@@ -1,5 +1,5 @@
 #include"operate.hpp"
-unsigned user::click(bool **lights,const unsigned N,const unsigned M,const unsigned i,const unsigned j){
+unsigned operate::click(bool **lights,const unsigned N,const unsigned M,const unsigned i,const unsigned j){
 	//click on position (i,j) in N*M matrix `lights`
 	if(i>=N&&j>=M){
 		//Error:invalid index

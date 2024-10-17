@@ -12,7 +12,7 @@ int main(int argc,char *argv[]){
 	bool *light[M];
 	for(int j=0;j<M;j++)
 		light[j]=new bool[N];
-	unsigned count_on=user::initialize(light,N,M);
+	unsigned count_on=operate::initialize(light,N,M);
 	if(FILENO)
 		write(STDOUT_FILENO,&count_on,sizeof(count_on));	
 	else
@@ -31,7 +31,7 @@ int main(int argc,char *argv[]){
 		}
 		else
 			std::cin>>i>>j;
-		count_on=user::click(light,N,M,i,j);
+		count_on=operate::click(light,N,M,i,j);
 		if(count_on==-1){
 			std::cerr<<"Error: invalid index "<<i<<" and "<<j<<std::endl;
 			continue;
@@ -42,7 +42,7 @@ int main(int argc,char *argv[]){
 			std::cout<<"Now: "<<count_on<<std::endl;
 	}
 	for(int j=0;j<M;j++)
-		delete light[j];
+		delete []light[j];
 	std::clog.rdbuf(clogbuf);
 	log.close();
 	return 0;

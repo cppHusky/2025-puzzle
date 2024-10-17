@@ -2,10 +2,12 @@ cmake_minimum_required(VERSION 3.30)
 project(CountLightsOff VERSION 0.1)
 set(CMAKE_CXX_STANDARD 20)
 add_library(clo_library STATIC
+	include/gaussian.hpp
 	include/operate.hpp
 	include/preset.hpp
 	include/random.hpp
 	lib/click.cpp
+	lib/gaussian.cpp
 	lib/getcoef.cpp
 	lib/initialize.cpp
 )
