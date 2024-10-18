@@ -52,15 +52,13 @@ int gaussian::gaussian_eliminate(double **matrix){
 			continue;
 		}
 		std::swap(matrix[max_index],matrix[row]);
-		for(int i=row+1;i<N*M;i++){
+		for(int i=row+1;i<N*M;i++)
 			if(std::abs(matrix[i][column])>1e-5){
 				double rate=matrix[i][column]/matrix[row][column];
 				for(int j=0;j<N*M+1;j++)
 					matrix[i][j]-=matrix[row][j]*rate;
 			}
-		}
 		row++;
-		column++;
 	}
 	for(row=N*M-1;row>=0;row--){
 		int y{-1};
@@ -69,15 +67,15 @@ int gaussian::gaussian_eliminate(double **matrix){
 				y=j;
 				break;
 			}
-		if(y>=0&&y<N*M+1)
+		if(y>=0&&y<N*M)
 			for(int i=0;i<row;i++)
 				if(std::abs(matrix[i][y])>1e-5){
 					double rate=matrix[i][y]/matrix[row][y];
 					for(int j=y;j<N*M+1;j++)
-						if(std::abs(matrix[i][j])>1e-5)
+						if(std::abs(matrix[row][j])>1e-5)
 							matrix[i][j]-=matrix[row][j]*rate;
 				}
-		else if(y==N*M+1)
+		else if(y==N*M)
 			return -1;
 	}
 	for(int i=0;i<N*M;i++){
@@ -119,13 +117,13 @@ int gaussian::gaussian_eliminate(bool **matrix){
 				y=j;
 				break;
 			}
-		if(y>=0&&y<N*M+1)
+		if(y>=0&&y<N*M)
 			for(int i=0;i<row;i++)
 				if(matrix[i][y])
 					for(int j=y;j<N*M+1;j++)
 						if(matrix[row][j])
 							matrix[i][j]=!matrix[i][j];
-		else if(y==N*M+1)
+		else if(y==N*M)
 			return -1;
 	}
 	return 0;
