@@ -7,3 +7,13 @@
 本关没有填写框，也没有正确答案，正确答案藏在三个地图合并而成的二维码当中。
 
 合并的逻辑为：雷点为 `1`，空地为 `0`，按 Bit Or 规则合成。
+
+## 数据生成
+
+```shell
+python3 convert.py
+```
+
+[origin.txt](./origin.txt) 是二维码原图的0-1矩阵形式。
+
+[map0.txt](./map0.txt) [map2.txt](./map2.txt) [map2.txt](./map2.txt) 是三个拆分出来的0-1矩阵。
