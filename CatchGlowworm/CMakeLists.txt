@@ -12,6 +12,4 @@ add_library(cg_library STATIC
 )
 target_include_directories(cg_library PUBLIC include)
 add_executable(cg src/cg.cpp)
-add_executable(sol src/solve.cpp)
 target_link_libraries(cg PRIVATE cg_library)
-target_link_libraries(sol PRIVATE cg_library)
