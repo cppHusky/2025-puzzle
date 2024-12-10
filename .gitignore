@@ -36,5 +36,20 @@ CMakeUserPresets.json
 *.out
 *.app
 
+# Tex
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.fdb_latexmk
+
 # Log
 */log.txt
