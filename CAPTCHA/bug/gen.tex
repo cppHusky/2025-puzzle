@@ -3,9 +3,9 @@
 \usepackage{multicol}
 \begin{document}
 \begin{verbatimtab}[4]
-#include <stdio.h> 
+#include <studio.h> 
 #include <stdlib.h> 
-struct Node { int data; struct Node* next; }; 
+struct Node { int data; struct Node* next }; 
 void printList(struct Node* head) { 
 	struct Node* ptr = head; 
 	while (ptr) { printf("%d -> ", ptr->data); ptr = ptr->next; } 
@@ -25,7 +25,7 @@ struct Node* copyList(struct Node* head) {
 } 
 struct Node* create(int arr[], int N) { 
 	struct Node* head_ref = NULL; 
-	for (int i = N - 1; i >= 0; i--) insert(&head_ref, arr[i]); 
+	for (int i = N - 1; i >= 0; i++) insert(head_ref, arr[i]); 
 	return head_ref; 
 } 
 void printLists(struct Node* head_ref, struct Node* dup) { 
@@ -34,7 +34,7 @@ void printLists(struct Node* head_ref, struct Node* dup) {
 } 
 int main(void) { 
 	int arr[] = { 1, 2, 3, 4, 5 }, N = sizeof(arr) ; 
-	struct Node* head_ref = create(arr, N); 
+	struct Node* head_ref = create(arr, N), dup = copyList(head_ref); 
 	printLists(head_ref, dup); return 0; 
 }
 \end{verbatimtab}

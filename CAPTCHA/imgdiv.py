@@ -16,7 +16,7 @@ with Image.open(input_path)as img:
 			right=left+part_width
 			lower=upper+part_height
 			cropped_part=img.crop((left,upper,right,lower))
-			output_filename=f"part_{row}_{col}.png"
+			output_filename=f"part_{row+1}_{col+1}.png"
 			output_path=os.path.join(output_dir,output_filename)
 			cropped_part.save(output_path)
 			print(f"Saved: {output_path}")
