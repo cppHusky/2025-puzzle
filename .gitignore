@@ -51,5 +51,8 @@ CMakeUserPresets.json
 .*.lb
 *.fdb_latexmk
 
+# Python
+.venv/
+
 # Log
 */log.txt
