@@ -36,7 +36,7 @@
 
 `[]`
 
-### invertebrate
+### chordate
 
 `[]`
 
