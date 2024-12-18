@@ -1,4 +1,4 @@
-#!/bin/python3
+#!./.venv/bin/python3
 def read_matrix(file_path):
     matrix = []
     with open(file_path, 'r') as f:
