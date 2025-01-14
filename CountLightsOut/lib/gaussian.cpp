@@ -1,26 +1,24 @@
-#include<unistd.h>
+#include<iostream>
 #include<algorithm>
 #include<cmath>
 #include"preset.hpp"
 #include"gaussian.hpp"
-void gaussian::make_b(unsigned *b,int *pipe_click,int *pipe_count){
+void gaussian::make_b(unsigned *b,std::istream &in,std::ostream &out){
 	unsigned last,now;
-	read(pipe_count[0],&now,sizeof(now));
+	in>>now;
 	for(unsigned i=0;i<N;i++)
 		for(unsigned j=0;j<M;j++){
-			write(pipe_click[1],&i,sizeof(i));
-			write(pipe_click[1],&j,sizeof(j));
+			out<<i+1<<' '<<j+1<<std::endl;
 			last=now;
-			read(pipe_count[0],&now,sizeof(now));
+			in>>now;
 			if((i==0||i==N-1)&&(j==0||j==M-1))
 				b[i*M+j]=(3+last-now)/2;
 			else if(i==0||i==N-1||j==0||j==M-1)
 				b[i*M+j]=(4+last-now)/2;
 			else
 				b[i*M+j]=(5+last-now)/2;
-			write(pipe_click[1],&i,sizeof(i));
-			write(pipe_click[1],&j,sizeof(j));
-			read(pipe_count[0],&now,sizeof(now));
+			out<<i+1<<' '<<j+1<<std::endl;
+			in>>now;
 		}
 }
 void gaussian::make_matrix(double **matrix,bool *const *coefficient,const unsigned *b){
