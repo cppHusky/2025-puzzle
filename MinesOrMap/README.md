@@ -1,4 +1,6 @@
-# MinesXorMap
+# MinesOrMap
+
+> 注：需要通过 [Entrance](./Entrance.md) 的检验。
 
 本题是由扫雷组成的一系列谜题。
 

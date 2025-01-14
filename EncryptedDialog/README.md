@@ -16,5 +16,5 @@ input.json 和 output.json 可以使用 [generate_map.py](generate_map.py) 生�
 
 - 玩家输入内容，如果有非 ASCII 字符，本次输入无效，否则，
 - 用 [input.json](input.json) 对输入进行加密，发送给 API。
-- 从 API 获得输出。如果有非 ASCII 字符，重新获取输出。
+- 从 API 获得输出。如果存在非 ASCII 字符，统一替换成虚缺号 `□`。
 - 用 [output.json](output.json) 对输出进行加密，显示给玩家。
