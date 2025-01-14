@@ -41,7 +41,7 @@
 > 位于 [lib/operate.ts](./lib/operate.ts)
 
 - 参数：`(you:Coordinate,enemy:Coordinate,length:number,destx:number,desty:number)` 表示移动行为开始前 `you` 和 `enemy` 的位置，行动开始前敌军已经走过的距离 `length` ，以及玩家期望移动到的位置 `(destx,desty)`。
-- 返回值：`[int,Coordinate,Coordinate,number]`，其中
+- 返回值：`[number,Coordinate,Coordinate,number]`，其中
     - 第一个值是返回状态。仅在状态为 `0` 时，后面的值才有意义；
     - 第二个值表示 移动结束后玩家的位置；
     - 第三个值表示 移动结束后敌军的位置；

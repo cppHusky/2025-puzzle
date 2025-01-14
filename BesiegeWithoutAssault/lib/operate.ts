@@ -6,7 +6,7 @@ export function initialize(you:coordinate.Coordinate,enemy:coordinate.Coordinate
 	you.y=you_y;
 	console.log(`your place: (${you.x.toPrecision(8)},${you.y.toPrecision(8)}); enemy's place: (${enemy.x.toPrecision(8)},${enemy.y.toPrecision(8)})`)
 }
-export function move(you:coordinate.Coordinate,enemy:coordinate.Coordinate,length:number,dest_x:number,dest_y:number):[int,coordinate.Coordinate,coordinate.Coordinate,number]{
+export function move(you:coordinate.Coordinate,enemy:coordinate.Coordinate,length:number,dest_x:number,dest_y:number):[number,coordinate.Coordinate,coordinate.Coordinate,number]{
 	const your_dir=new coordinate.Coordinate(dest_x,dest_y).subtract(you);
 	const your_dir_slice=your_dir.multiply(1/10000);
 	const your_dir_slice_len=your_dir_slice.norm();
@@ -20,12 +20,12 @@ export function move(you:coordinate.Coordinate,enemy:coordinate.Coordinate,lengt
 			if(enemy.subtract(you).norm()<1){
 				console.log(`Failed: too close!`)
 				console.log(`your place: (${you.x.toPrecision(8)},${you.y.toPrecision(8)}); enemy's place: (${enemy.x.toPrecision(8)},${enemy.y.toPrecision(8)}) length: ${length}`)
-				return [1,null,null,null];
+				return [1,you,enemy,length];
 			}
 			if(enemy.norm()>10){
 				console.log(`Failed: out of range!`)
 				console.log(`your place: (${you.x.toPrecision(8)},${you.y.toPrecision(8)}); enemy's place: (${enemy.x.toPrecision(8)},${enemy.y.toPrecision(8)}) length: ${length}`)
-				return [2,null,null,null];
+				return [2,you,enemy,length];
 			}
 			if(length>preset.Goal){
 				console.log(`Successed!`)
