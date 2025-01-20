@@ -1,7 +1,7 @@
 #!/bin/env python3
 import sys
 rate=.5
-delta=.0001
+delta=.001
 d0=float(sys.argv[1])
 d1=float(sys.argv[2])
 d2=float(sys.argv[3])

@@ -25,7 +25,6 @@ int main(){
 		if(b[k]==1){
 			unsigned i{k/M},j{k%M},now;
 			std::cout<<i+1<<' '<<j+1<<std::endl;
-			std::cin>>now;
 		}
 	for(int i=0;i<N*M;i++){
 		delete []coefficient[i];
