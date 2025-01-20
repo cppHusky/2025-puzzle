@@ -10,4 +10,20 @@
 
 提供 4 个输入框，每回合玩家需要在输入框中输入 `0` 或 `1`，然后提交。
 
+**无论输入还是输出，都要从高位到低位显示。**
+
 通关条件：输出结果为全 `1`。
+
+## TypeScript 接口说明
+
+### `signal`
+
+> 位于 [lib/signal.ts](./lib/signal.ts)
+
+```
+function signal(input:Boolean[],last:Boolean[]):Boolean[]
+```
+
+- `input` 是长度为 4 的数组，表示玩家本回合的输入。
+- `last` 是长度为 8 的数组，表示上一回合的输出。初始值全为 `false`。
+- 返回值是长度为 8 的数组，表示本回合的输出。

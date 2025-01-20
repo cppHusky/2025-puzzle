@@ -3,7 +3,7 @@
 #include"preset.hpp"
 std::array<bool,preset::OutputNum> operate::signal(std::array<bool,preset::InputNum> &input,std::array<bool,preset::OutputNum> &output){
 	std::array<bool,preset::OutputNum> result;
-	//result[7,5,3,1]记录了上一次的输出
+	//result[7,5,3,1]记录了本次的输入
 	result[7]=input[3];
 	result[5]=input[2];
 	result[3]=input[1];
