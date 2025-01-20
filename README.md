@@ -11,3 +11,6 @@
 - CatchGlowworm: 100
 - EncryptedDialog: 1000
 - BesiegeWithoutAssault: 10000
+- DigitalCircuit: 100000
+
+MinesOrMap 不计入排行榜。
