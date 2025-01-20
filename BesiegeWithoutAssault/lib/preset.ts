@@ -1,2 +1,2 @@
-export const EnemySpeedRate:number=.5;
-export const Goal:number=32;
+export const EnemySpeedRate:number=.95;
+export const Goal:number=95;
